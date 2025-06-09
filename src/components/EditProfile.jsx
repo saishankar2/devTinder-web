@@ -141,7 +141,7 @@ const EditProfile = ({ user }) => {
           about,
           gender,
           photoUrl,
-        }}
+        }} showButtons={false}
       />
     </div>
   </div>
