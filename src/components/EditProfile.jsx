@@ -8,7 +8,7 @@ import { addUser } from '../utils/userSlice';
 const EditProfile = ({ user }) => {
   const [firstName, setFirstName] = useState(user.firstName);
   const [lastName, setLastName] = useState(user.lastName);
-  const [age, setAge] = useState(user.age);
+  const [age, setAge] = useState(user.age || "");
   const [gender, setGender] = useState(user.gender);
   const [about, setAbout] = useState(user.about);
   const [error, setError] = useState("");
@@ -96,17 +96,20 @@ const EditProfile = ({ user }) => {
             </label>
 
             <label className="form-control w-full">
-              <div className="label">
-                <span className="label-text">Gender</span>
-              </div>
-              <input
-                type="text"
-                value={gender}
-                placeholder="Please enter your gender"
-                className="input input-bordered w-full"
-                onChange={(e) => setGender(e.target.value)}
-              />
-            </label>
+  <div className="label">
+    <span className="label-text">Gender</span>
+  </div>
+  <select
+    value={gender}
+    onChange={(e) => setGender(e.target.value)}
+    className="select select-bordered w-full"
+  >
+    <option value="">Select your gender</option>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+    <option value="other">Other</option>
+  </select>
+</label>
 
             <label className="form-control w-full">
               <div className="label">
